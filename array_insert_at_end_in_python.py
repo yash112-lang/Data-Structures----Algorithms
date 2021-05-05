@@ -1,24 +1,16 @@
 size = int(input("Enter size of array: "))
 arr = []
 
-
 def traverseArray(arr):
     for i in arr:
         print(i)
 
-
-
-def insertAtStart(arr, number):
-    arr.insert(0, number)
+def insertAtEnd(arr, data):
+    arr.append(data)
 
 for i in range(size):
-    arr.append(input('Enter number: '))
-
-
-
+    arr.append(input())
 
 traverseArray(arr)
-insertAtStart(arr, 5)
+insertAtEnd(arr, 5)
 traverseArray(arr)
-
-

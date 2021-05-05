@@ -6,19 +6,13 @@ def traverseArray(arr):
     for i in arr:
         print(i)
 
-
-
-def insertAtStart(arr, number):
-    arr.insert(0, number)
+def insertAtIndex(arr, index, data):
+    arr.insert(index, data)
 
 for i in range(size):
-    arr.append(input('Enter number: '))
-
-
-
+    arr.append(input())
 
 traverseArray(arr)
-insertAtStart(arr, 5)
+insertAtIndex(arr, 3, 5)
 traverseArray(arr)
-
 

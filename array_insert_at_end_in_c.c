@@ -2,43 +2,54 @@
 # include <stdlib.h>
 
 void traverseArray(int *ptr, int size){
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < size; i ++){
         printf("%d element is %d\n", i, ptr[i]);
     }
 }
 
-int* insertAtStart(int *ptr, int data, int size){
+int *insertAtEnd(int *ptr, int *size, int data){
     int *arr;
-    arr = (int *)malloc((size+1)* sizeof(int));
+    *size += 1;
+    int i = 0;
+    arr = (int *)malloc((*size) * sizeof(int));
     if(arr == NULL){
         printf("Unable to allocate memory.");
         exit(1);
     }
-    arr[0] = data;
-    for(int i = 0; i < size+1; i++){
-        arr[i+1] = ptr[i];
+
+
+    while(i < *size){
+        arr[i] = ptr[i];
+        i += 1;
     }
+    
+    arr[i-1] = data;
     free(ptr);
     return arr;
+
 }
+
 int main()
 {
-    int size;
     int *ptr;
-    printf("Enter size of array: ");
+    int size;
+
+    printf("Enter size of the array: ");
     scanf("%d", &size);
 
-    ptr = malloc(size * sizeof(int));
+    ptr = (int *)malloc(size * sizeof(int));
     if(ptr == NULL){
         printf("Unable to allocate memory.");
         return 0;
     }
 
-    for(int i = 0; i < size; i++){
+    printf("Enter array digits: \n");
+    for(int i = 0; i < size; i ++){
         scanf("%d", &ptr[i]);
     }
+
     traverseArray(ptr, size);
-    ptr = insertAtStart(ptr, 5, size);
-    traverseArray(ptr, size+1);
+    ptr = insertAtEnd(ptr, &size, 5);
+    traverseArray(ptr, size);
     return 0;
 }
