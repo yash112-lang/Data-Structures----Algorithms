@@ -52,7 +52,5 @@ int main()
     l1 = insertAtEnd(l1, 5);
     traverseLinkedList(l1);
 
-
-
     return 0;
 }
